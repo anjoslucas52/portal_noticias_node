@@ -1,11 +1,9 @@
-const app = require('./config/server')
-const rotaHome = require('./app/routes/home')
-const rotaNoticias = require('./app/routes/noticias')
-const rotaformularioInclusao = require('./app/routes/formulario_inclusao_noticia')
+const app = require('./config/server')(app)
+const rotaHome = require('./app/routes/home')(app)
+const rotaNoticias = require('./app/routes/noticias')(app)
+const rotaformularioInclusao = require('./app/routes/formulario_inclusao_noticia')(app)
 
-rotaHome(app)
-rotaNoticias(app)
-rotaformularioInclusao(app)
+
 
 app.listen(3000, function(){
     console.log('🚀 Server Runing')
